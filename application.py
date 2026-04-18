@@ -19,7 +19,8 @@ templates = Jinja2Templates(directory="templates")
 ### get home api ###
 @application.get("/",response_class=HTMLResponse)
 async def home(request:Request):
-    return templates.TemplateResponse('index.html',{'request':request})
+    return templates.TemplateResponse('index.html',
+                                      {'request':request})
 
 @application.post('/predict_fwi')
 async def predict_fwi(request: Request,
